@@ -13,4 +13,9 @@ Rails.application.routes.draw do
       get :update_all
     end
   end
+
+  scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
+    resources :games, only: [:index]
+    resources :teams, only: [:index]
+  end
 end

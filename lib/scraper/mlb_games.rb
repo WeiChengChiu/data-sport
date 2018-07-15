@@ -5,7 +5,6 @@ module ScraperHelper
     def self.run(first_day = "2018-07-10", last_day = "2018-07-11")
       first_day = first_day.to_datetime
       last_day = last_day.to_datetime
-
       while first_day <= last_day
         day = first_day.strftime("%Y%m%d")
         league = League.find_by(name: "MLB")
