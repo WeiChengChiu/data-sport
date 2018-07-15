@@ -6,4 +6,11 @@ Rails.application.routes.draw do
       get :update_all
     end
   end
+
+  resources :teams, only: [:index] do
+    collection do
+      get :destroy_all
+      get :update_all
+    end
+  end
 end

@@ -1,5 +1,5 @@
 module GamesHelper
-  def gems_status(status_number)
+  def games_status(status_number)
     case status_number
     when 0
       "未開打"

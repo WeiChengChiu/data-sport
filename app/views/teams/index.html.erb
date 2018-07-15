@@ -1,0 +1,28 @@
+<%=form_tag teams_path,class: "form-horizontal",method: :get, role:"form" do%>
+  <div class="form-group">
+    <%=label_tag :test,"Test",class: "col-xs-1 control-label" %>
+    <div class="col-xs-2">
+      <%=submit_tag "Test", class: "btn btn-info"%>
+    </div>
+  </div>
+<%end%>
+<%= link_to 'Teams Scraper', update_all_teams_path, class: "btn btn-info"%>
+<%= link_to 'Teams Destroy', destroy_all_teams_path, class: "btn btn-danger"%>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Official id</th>
+      <th>League</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@teams.each do |team|%>
+    <tr>
+      <td><%= team.officail_id%></td>
+      <td><%= league_name(team.league_id) %></td>
+      <td><%= team.name%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
