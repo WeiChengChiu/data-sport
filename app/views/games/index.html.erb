@@ -1,0 +1,38 @@
+<%=form_tag games_path,class: "form-horizontal",method: :get, role:"form" do%>
+  <div class="form-group">
+    <%=label_tag :test,"Test",class: "col-xs-1 control-label" %>
+    <div class="col-xs-2">
+      <%=submit_tag "Test", class: "btn btn-info"%>
+    </div>
+  </div>
+<%end%>
+<%= link_to 'Games Scraper', update_all_games_path, class: "btn btn-info"%>
+<%= link_to 'Games Destroy', destroy_all_games_path, class: "btn btn-danger"%>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Official id</th>
+      <th>League</th>
+      <th>Game Time</th>
+      <th>Home Team</th>
+      <th>Away Team</th>
+      <th>Home Team Score</th>
+      <th>Away Team Score</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@games.each do |game|%>
+    <tr>
+      <td><%= game.official_id%></td>
+      <td><%= league_name(game.league_id) %></td>
+      <td><%= game.game_time%></td>
+      <td><%= game.home_team.name%></td>
+      <td><%= game.away_team.name%></td>
+      <td><%= game.home_team_score%></td>
+      <td><%= game.away_team_score%></td>
+      <td><%= gems_status(game.status)%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
